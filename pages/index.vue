@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <b-container class="app">
     <b-row>
       style="margin: 0px auto;" justify="center" align="center">
       <b-col style="padding: 0px 0px;">
@@ -102,7 +102,7 @@
         </b-modal>
       </b-row>
     </b-card>
-  </div>
+  </b-container>
 </template>
 
 <script>
