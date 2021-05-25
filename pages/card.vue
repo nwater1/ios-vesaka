@@ -107,15 +107,17 @@ export default {
   },
   async mounted () {
     // eslint-disable-next-line no-undef
-    await liff.init({ liffId: '1656026908-31A2jyx9' })
+    await liff.init({ liffId: '1656026908-31A2jyx9' }).then(() => {
+      // eslint-disable-next-line no-undef
+      if (liff.isLoggedIn()) {
+
+      // eslint-disable-next-line no-undef
+      } else {
+      // eslint-disable-next-line no-undef
+        liff.login({ redirectUri: 'https://master.d3q9xi5xd7lsf3.amplifyapp.com/' })
+      }
+    })
     // eslint-disable-next-line no-undef
-    if (liff.isLoggedIn()) {
-      this.getUserProfile()
-      // eslint-disable-next-line no-undef
-    } else {
-      // eslint-disable-next-line no-undef
-      liff.login({ redirectUri: 'https://master.d3q9xi5xd7lsf3.amplifyapp.com/' })
-    }
 
     const id = this.$route.params.id
     this.name = id
