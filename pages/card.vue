@@ -131,38 +131,131 @@ export default {
     //   // eslint-disable-next-line no-undef
     //   const profile = await liff.getProfile()
     //   this.profile = profile
-  },
-  back () {
+
+    back () {
     // console.log(this.src)
-    this.$router.replace('/')
-  },
-  share () {
+      this.$router.replace('/')
+    },
+    share () {
     // eslint-disable-next-line no-undef
     // eslint-disable-next-line no-undef
-    liff.openWindow({
-      url: `https://www.facebook.com/sharer/sharer.php?u=${this.$store.state.user.user.coverImage}`,
-      external: true
-    })
+      liff.openWindow({
+        url: `https://www.facebook.com/sharer/sharer.php?u=${this.$store.state.user.user.coverImage}`,
+        external: true
+      })
     // return window.location.href('https://www.facebook.com/dialog/share?app_id=1093024467833550&display=popup&href=https://master.d35xisgv6y1ahr.amplifyapp.com/card&redirect_uri=https://master.d35xisgv6y1ahr.amplifyapp.com/card')
     // https://www.facebook.com/sharer/sharer.php?u=https://master.d35xisgv6y1ahr.amplifyapp.com
     // https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmaster.d35xisgv6y1ahr.amplifyapp.com%2Fcard&amp;src=sdkpreparse
-  },
-  saveImg () {
+    },
+    saveImg () {
     // eslint-disable-next-line no-undef
-    liff.openWindow({
-      url: this.$store.state.user.user.coverImage,
-      external: true
-    })
-  },
-  async sharel () {
+      liff.openWindow({
+        url: this.$store.state.user.user.coverImage,
+        external: true
+      })
+    },
+    async sharel () {
     // eslint-disable-next-line no-undef
-    if (liff.getContext().type !== 'none') {
+      if (liff.getContext().type !== 'none') {
       // eslint-disable-next-line no-undef
-      await liff.sendMessages([
+        await liff.sendMessages([
 
+          {
+            type: 'flex',
+            altText: 'ลงชื่อเพื่อร่วมเป็น 1 ในผู้สถาปนา ในวันวิสาขบูชาโลก ออนไลน์ ครั้งที่ 1',
+            contents: {
+              type: 'bubble',
+              body: {
+                type: 'box',
+                layout: 'vertical',
+                spacing: 'md',
+                contents: [
+                  {
+                    type: 'text',
+                    text: 'ลงชื่อเพื่อร่วมเป็น 1 ในผู้สถาปนา ในวันวิสาขบูชาโลก ออนไลน์ ครั้งที่ 1',
+                    weight: 'bold',
+                    size: 'xl',
+                    margin: 'xs',
+                    wrap: true,
+                    style: 'normal',
+                    decoration: 'none',
+                    align: 'center',
+                    offsetBottom: 'none'
+                  },
+                  {
+                    type: 'image',
+                    url: this.user.coverImage,
+                    position: 'relative',
+                    offsetTop: '-20px',
+                    align: 'center',
+                    size: 'full',
+                    aspectRatio: '2:3',
+                    aspectMode: 'fit',
+                    animated: true
+                  }
+                ]
+              },
+              footer: {
+                type: 'box',
+                layout: 'vertical',
+                spacing: 'sm',
+                contents: [],
+                flex: 0
+
+              }
+            }
+          }
+
+        ])
+      }
+    },
+    async sendMessage () {
+    // eslint-disable-next-line no-console
+    // console.log(this.$store.state.user.user.coverImage)
+    // eslint-disable-next-line no-undef
+      if (liff.getContext().type !== 'none') {
+        try {
+        // eslint-disable-next-line no-undef
+          await liff.sendMessages([
+            {
+              type: 'sticker',
+              stickerId: 2,
+              packageId: 1
+
+            },
+            {
+              type: 'image',
+              originalContentUrl: this.$store.state.user.user.coverImage,
+              previewImageUrl: this.$store.state.user.user.coverImage
+            }
+          ])
+          alert('ส่งการ์ดไปให้คุณแล้ว')
+        // eslint-disable-next-line no-undef
+        // liff.closeWindow()
+        } catch (e) {
+        // eslint-disable-next-line no-console
+          console.log(e)
+          // eslint-disable-next-line no-undef
+          const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || '').split('.')
+
+          if (minorVer === undefined) {
+            alert('Message was canceled in external browser')
+            return
+          }
+
+          if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
+            alert('Message was canceled in LINE app')
+          }
+        }
+      }
+    },
+    async shareLine () {
+    // eslint-disable-next-line no-undef
+    // eslint-disable-next-line no-undef
+      const result = await liff.shareTargetPicker([
         {
           type: 'flex',
-          altText: 'ลงชื่อเพื่อร่วมเป็น 1 ในผู้สถาปนา ในวันวิสาขบูชาโลก ออนไลน์ ครั้งที่ 1',
+          altText: 'ลงชื่อเพื่อ ร่วมเป็น 1 ในผู้สถาปนา ในวันวิสาขบูชาโลก ออนไลน์ ครั้งที่1',
           contents: {
             type: 'bubble',
             body: {
@@ -172,7 +265,7 @@ export default {
               contents: [
                 {
                   type: 'text',
-                  text: 'ลงชื่อเพื่อร่วมเป็น 1 ในผู้สถาปนา ในวันวิสาขบูชาโลก ออนไลน์ ครั้งที่ 1',
+                  text: 'ลงชื่อเพื่อ ร่วมเป็น 1 ในผู้สถาปนา ในวันวิสาขบูชาโลก ออนไลน์ ครั้งที่1',
                   weight: 'bold',
                   size: 'xl',
                   margin: 'xs',
@@ -184,149 +277,57 @@ export default {
                 },
                 {
                   type: 'image',
-                  url: this.user.coverImage,
+                  url: this.$store.state.user.user.coverImage,
                   position: 'relative',
                   offsetTop: '-20px',
                   align: 'center',
                   size: 'full',
                   aspectRatio: '2:3',
                   aspectMode: 'fit',
-                  animated: true
+                  animated: true,
+                  action: {
+                    type: 'uri',
+                    label: 'action',
+                    uri: this.$store.state.user.user.coverImage
+                  }
                 }
               ]
             },
             footer: {
               type: 'box',
               layout: 'vertical',
-              spacing: 'sm',
-              contents: [],
-              flex: 0
+              spacing: 'xs',
+              contents: [
+                {
+                  type: 'button',
+                  action: {
+                    type: 'uri',
+                    label: 'ลงชื่อเพื่อ ร่วมเป็น 1 ในผู้สถาปนา',
+                    uri: 'https://lin.ee/4FpzwqY'
+                  },
+                  style: 'primary',
+                  height: 'md'
+                }
+              ]
 
             }
           }
         }
-
       ])
-    }
-  },
-  async sendMessage () {
-    // eslint-disable-next-line no-console
-    // console.log(this.$store.state.user.user.coverImage)
-    // eslint-disable-next-line no-undef
-    if (liff.getContext().type !== 'none') {
-      try {
-        // eslint-disable-next-line no-undef
-        await liff.sendMessages([
-          {
-            type: 'sticker',
-            stickerId: 2,
-            packageId: 1
-
-          },
-          {
-            type: 'image',
-            originalContentUrl: this.$store.state.user.user.coverImage,
-            previewImageUrl: this.$store.state.user.user.coverImage
-          }
-        ])
-        alert('ส่งการ์ดไปให้คุณแล้ว')
-        // eslint-disable-next-line no-undef
-        // liff.closeWindow()
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log(e)
-        // eslint-disable-next-line no-undef
+      if (result) {
+        alert('ส่งข้อความไปหาเพื่อนของคุณแล้ว!')
+      } else {
+      // eslint-disable-next-line no-undef
         const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || '').split('.')
 
         if (minorVer === undefined) {
-          alert('Message was canceled in external browser')
+          alert('ShareTargetPicker was canceled in external browser')
           return
         }
 
         if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
-          alert('Message was canceled in LINE app')
+          alert('ShareTargetPicker was canceled in LINE app')
         }
-      }
-    }
-  },
-  async shareLine () {
-    // eslint-disable-next-line no-undef
-    // eslint-disable-next-line no-undef
-    const result = await liff.shareTargetPicker([
-      {
-        type: 'flex',
-        altText: 'ลงชื่อเพื่อ ร่วมเป็น 1 ในผู้สถาปนา ในวันวิสาขบูชาโลก ออนไลน์ ครั้งที่1',
-        contents: {
-          type: 'bubble',
-          body: {
-            type: 'box',
-            layout: 'vertical',
-            spacing: 'md',
-            contents: [
-              {
-                type: 'text',
-                text: 'ลงชื่อเพื่อ ร่วมเป็น 1 ในผู้สถาปนา ในวันวิสาขบูชาโลก ออนไลน์ ครั้งที่1',
-                weight: 'bold',
-                size: 'xl',
-                margin: 'xs',
-                wrap: true,
-                style: 'normal',
-                decoration: 'none',
-                align: 'center',
-                offsetBottom: 'none'
-              },
-              {
-                type: 'image',
-                url: this.$store.state.user.user.coverImage,
-                position: 'relative',
-                offsetTop: '-20px',
-                align: 'center',
-                size: 'full',
-                aspectRatio: '2:3',
-                aspectMode: 'fit',
-                animated: true,
-                action: {
-                  type: 'uri',
-                  label: 'action',
-                  uri: this.$store.state.user.user.coverImage
-                }
-              }
-            ]
-          },
-          footer: {
-            type: 'box',
-            layout: 'vertical',
-            spacing: 'xs',
-            contents: [
-              {
-                type: 'button',
-                action: {
-                  type: 'uri',
-                  label: 'ลงชื่อเพื่อ ร่วมเป็น 1 ในผู้สถาปนา',
-                  uri: 'https://lin.ee/4FpzwqY'
-                },
-                style: 'primary',
-                height: 'md'
-              }
-            ]
-
-          }
-        }
-      }
-    ])
-    if (result) {
-      alert('ส่งข้อความไปหาเพื่อนของคุณแล้ว!')
-    } else {
-      // eslint-disable-next-line no-undef
-      const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || '').split('.')
-
-      if (minorVer === undefined) {
-        alert('ShareTargetPicker was canceled in external browser')
-        return
-      }
-
-      if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
-        alert('ShareTargetPicker was canceled in LINE app')
       }
     }
   }
