@@ -114,7 +114,7 @@ export default {
       // eslint-disable-next-line no-undef
     } else {
       // eslint-disable-next-line no-undef
-      liff.login({ redirectUri: 'https://master.d1xnc86zjtxdwi.amplifyapp.com/' })
+      liff.login({ redirectUri: 'https://master.d3q9xi5xd7lsf3.amplifyapp.com/' })
     }
 
     const id = this.$route.params.id
