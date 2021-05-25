@@ -14,7 +14,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css'
+        href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'
       }
     ]
   },
@@ -32,7 +32,7 @@ export default {
       type: 'text/javascript'
     },
     {
-      src: 'https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js',
+      src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js',
       type: 'text/javascript'
     }
   ],
