@@ -1,7 +1,6 @@
 <template>
-  <b-container class="app" fluid>
-    <b-row>
-      style="margin: 0px auto;" justify="center" align="center">
+  <b-container class="app" fluid-md style="padding: 0px 0px;">
+    <b-row style="margin: 0px auto;" justify="center" align="center">
       <b-col style="padding: 0px 0px;">
         <section id="main">
           <b-img
@@ -38,14 +37,14 @@
       class="outlined transparent-body no-padding responsive-img"
       align="center"
       justify="center"
-      style="margin: 0 auto;margin-top: -150px;"
+      style="margin: 0 auto;margin-top: -180px;"
     >
       <b-row align="center" justify="center">
         <b-col justify="center" style="padding-bottom: 0px;">
           <AppInput v-model="inputField" />
         </b-col>
       </b-row>
-      <b-row align="center" justify="center" style="margin-top: 15px;">
+      <b-row align="center" justify="center" style="margin-top: 12px;">
         <b-col>
           <AppButton
             @click="handlerCreateClicked"
@@ -55,45 +54,39 @@
         </b-col>
 
         <b-modal
-
-          max-width="340"
+          v-model="dialog"
+          class="justify-content-center mb-2"
+          max-width="50px"
+          hide-footer
+          hide-header
         >
           <b-card
-            class="mx-auto my-12"
+            style="max-width: 20rem;"
             color="rgba(255, 255, 255, 1)"
+            class="justify-content-center mb-2"
           >
             <b-row
-              class="d-flex
-            justify-center mb-2"
+              class="justify-content-center mb-2"
             >
               <b-img
                 style="padding-top: 30px"
-                max-height="60"
-                max-width="60"
 
                 :src="require('../assets/but-04.png')"
               />
             </b-row>
 
-            <b-card-title class="headline d-flex justify-center" style="color: #3E2914;">
-              <h4>ลงชื่อสำเร็จแล้ว</h4>
-            </b-card-title>
-            <b-card-text class="d-flex justify-center mb-6">
-              <h5 style="text-align: center;" />
+            <b-card-text class="headline justify-center" style="color: #3E2914;">
+              <h4 style="text-align: center;">
+                ลงชื่อสำเร็จแล้ว
+              </h4>
             </b-card-text>
-            <b-card-actions>
-              <b-spacer />
-            </b-card-actions>
           </b-card>
 
           <b-row
-            class="d-flex
-            justify-center
-            mb-6"
+            class="justify-content-center mb-2"
             style="padding-bottom: 15px"
           >
             <AppButton
-
               @click="loadCard"
             >
               <i class="fas fa-id-card" /> ดูการ์ดจารึกชื่อของคุณ
@@ -211,10 +204,10 @@ export default {
       // eslint-disable-next-line no-undef
       if (liff.isLoggedIn()) {
         // eslint-disable-next-line no-undef
-        // liff.getProfile().then((profile) => {
-        //   this.user.profile = profile.pictureUrl
-        //   this.user.displayName = profile.displayName
-        //   this.user.userId = profile.userId
+        liff.getProfile().then((profile) => {
+          this.user.profile = profile.pictureUrl
+          this.user.displayName = profile.displayName
+          this.user.userId = profile.userId
         // eslint-disable-next-line no-undef
         // if (liff.getDecodedIDToken().email) {
         //   // eslint-disable-next-line no-undef
@@ -222,7 +215,7 @@ export default {
         // } else {
         //   this.user.email = ''
         // }
-        //    })
+        })
       } else {
         // console.log('no login')
         // eslint-disable-next-line no-undef
@@ -365,6 +358,10 @@ background: transparent;
 
 .bg-cc {
   background-image: url('~assets/rebg.jpg');
+}
+
+.block {
+  display: block;
 }
 
 </style>

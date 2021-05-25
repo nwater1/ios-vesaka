@@ -1,17 +1,16 @@
 
 <template>
-  <div class="touch">
+  <b-container class="app" fluid-md style="padding: 0px 0px; margin-top: -22px">
     <br>
-    <v-row justify="center" align="center">
-      <v-main style="padding-bottom: 30px">
-        <section id="main">
-          <v-img
-
-            :src="blog"
-          />
-        </section>
-      </v-main>
-    </v-row>
+    <b-row justify="center" align="center">
+      <b-col style="padding-bottom: 30px">
+        <b-img
+          :src="blog"
+          fluid
+          alt="Responsive image"
+        />
+      </b-col>
+    </b-row>
     <!--
     <v-row justify="center" align="center" style="padding-bottom: 30px">
        <AppButton
@@ -22,39 +21,39 @@
       </AppButton>
     </v-row>
     -->
-    <v-row justify="center" align="center" style="padding-bottom: 30px">
+    <b-row class="justify-content-center mb-2" style="padding-bottom: 10px">
       <AppButtonShare
 
         @click="share"
       >
         <i class="fab fa-facebook-square" /> แชร์ผ่านเฟสบุค
       </AppButtonShare>
-    </v-row>
-    <v-row justify="center" align="center" style="padding-bottom: 30px">
+    </b-row>
+    <b-row class="justify-content-center mb-2" style="padding-bottom: 10px">
       <AppButtonLine
 
         @click="sendMessage"
       >
         <i class="fab fa-line" /> ส่งการ์ดในไลน์
       </AppButtonLine>
-    </v-row>
-    <v-row justify="center" align="center" style="padding-bottom: 20px">
+    </b-row>
+    <b-row class="justify-content-center mb-2" style="padding-bottom: 10px">
       <AppButtonLine
 
         @click="shareLine"
       >
         <i class="far fa-paper-plane" /> ชวนเพื่อนมาลงชื่อ
       </AppButtonLine>
-    </v-row>
-    <v-row justify="center" align="center">
+    </b-row>
+    <b-row class="justify-content-center mb-2">
       <AppButton
 
         @click="back"
       >
         <i class="fas fa-home" /> กลับหน้าหลัก
       </AppButton>
-    </v-row>
-  </div>
+    </b-row>
+  </b-container>
 </template>
 <script>
 import AppButton from '../components/Buttonsubmit'

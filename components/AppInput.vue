@@ -25,13 +25,13 @@ input[type="text"] {
   -moz-border-radius: 20px;
   text-align: center;
   border-radius: 20px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   border: 1px solid #a0d18c;
   color: #06122B;
   width: 80%;
   height: 42px;
-  padding: 12px 24px;
+  padding: 10px 24px;
   background:  #FFF;
 }
 

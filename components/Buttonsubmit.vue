@@ -26,10 +26,10 @@ button {
   width: 230px;
   border: 4px solid var(--button-border-color, var(--primary-color));
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   background-image: linear-gradient(#F6CD01, #CB9F00);
   border-radius: 9999px;
-  padding: 12px 24px;
+  padding: 10px 24px;
   transition: 0.25s ease-in-out all;
 }
 
