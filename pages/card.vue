@@ -107,7 +107,7 @@ export default {
   },
   async mounted () {
     // eslint-disable-next-line no-undef
-    await liff.init({ liffId: '1656023598-jbmRQA1P' })
+    await liff.init({ liffId: '1656026908-31A2jyx9' })
     // eslint-disable-next-line no-undef
     if (liff.isLoggedIn()) {
       this.getUserProfile()
