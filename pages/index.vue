@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <b-container>
+    <b-row>
       style="margin: 0px auto;" justify="center" align="center">
-      <div class="col" style="padding: 0px 0px;">
+      <b-col style="padding: 0px 0px;">
         <section id="main">
           <b-img
             :src="imageIndex"
@@ -10,10 +10,9 @@
             alt="Responsive image"
           />
         </section>
-      </div>
-    </b-container>
-  </div>
-  <!--
+      </b-col>
+    </b-row>
+    <!--
     <v-row style="margin: 0px auto;" justify="center" align="center">
       <v-main style="padding: 0px 0px;">
         <section id="main">
@@ -33,77 +32,76 @@
       </v-main>
     </v-row>
 -->
-  <div
-    outlined
-    color="rgba(255, 255, 255, 0.01)"
-    class="outlined transparent-body no-padding responsive-img"
-    align="center"
-    justify="center"
-    style="margin: 0 auto;margin-top: -150px;"
-  >
-    <div class="row" align="center" justify="center">
-      <v-col justify="center" style="padding-bottom: 0px;">
-        <AppInput v-model="inputField" />
-      </v-col>
-    </div>
-    <div class="container-fluid" align="center" justify="center" style="margin-top: 15px;">
-      <div class="col">
-        <AppButton
-          @click="handlerCreateClicked"
-        >
-          กดส่งเพื่อจารึกชื่อ
-        </AppButton>
-      </div>
-
-      <div
-        class="modal-dialog"
-
-        max-width="340"
-      >
-        <v-card
-          class="mx-auto my-12"
-          color="rgba(255, 255, 255, 1)"
-        >
-          <div
-            class="row d-flex
-            justify-center mb-2"
+    <b-card
+      outlined
+      color="rgba(255, 255, 255, 0.01)"
+      class="outlined transparent-body no-padding responsive-img"
+      align="center"
+      justify="center"
+      style="margin: 0 auto;margin-top: -150px;"
+    >
+      <b-row align="center" justify="center">
+        <b-col justify="center" style="padding-bottom: 0px;">
+          <AppInput v-model="inputField" />
+        </b-col>
+      </b-row>
+      <b-row align="center" justify="center" style="margin-top: 15px;">
+        <b-col>
+          <AppButton
+            @click="handlerCreateClicked"
           >
-            <img
-              style="padding-top: 30px"
-              max-height="60"
-              max-width="60"
+            กดส่งเพื่อจารึกชื่อ
+          </AppButton>
+        </b-col>
 
-              :src="require('../assets/but-04.png')"
+        <b-modal
+
+          max-width="340"
+        >
+          <b-card
+            class="mx-auto my-12"
+            color="rgba(255, 255, 255, 1)"
+          >
+            <b-row
+              class="d-flex
+            justify-center mb-2"
             >
-          </div>
+              <b-img
+                style="padding-top: 30px"
+                max-height="60"
+                max-width="60"
 
-          <v-card-title class="headline d-flex justify-center" style="color: #3E2914;">
-            <h4>ลงชื่อสำเร็จแล้ว</h4>
-          </v-card-title>
-          <v-card-text class="d-flex justify-center mb-6">
-            <h5 style="text-align: center;" />
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer />
-          </v-card-actions>
-        </v-card>
+                :src="require('../assets/but-04.png')"
+              />
+            </b-row>
 
-        <div
-          class="row d-flex
+            <b-card-title class="headline d-flex justify-center" style="color: #3E2914;">
+              <h4>ลงชื่อสำเร็จแล้ว</h4>
+            </b-card-title>
+            <b-card-text class="d-flex justify-center mb-6">
+              <h5 style="text-align: center;" />
+            </b-card-text>
+            <b-card-actions>
+              <b-spacer />
+            </b-card-actions>
+          </b-card>
+
+          <b-row
+            class="d-flex
             justify-center
             mb-6"
-          style="padding-bottom: 15px"
-        >
-          <AppButton
-
-            @click="loadCard"
+            style="padding-bottom: 15px"
           >
-            <i class="fas fa-id-card" /> ดูการ์ดจารึกชื่อของคุณ
-          </AppButton>
-        </div>
-      </div>
-    </div>
-  </div>
+            <AppButton
+
+              @click="loadCard"
+            >
+              <i class="fas fa-id-card" /> ดูการ์ดจารึกชื่อของคุณ
+            </AppButton>
+          </b-row>
+        </b-modal>
+      </b-row>
+    </b-card>
   </div>
 </template>
 
