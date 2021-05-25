@@ -11,12 +11,30 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css'
+      }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+  ],
+  script: [
+    {
+      src: 'https://code.jquery.com/jquery-3.4.1.slim.min.js',
+      type: 'text/javascript'
+    },
+    {
+      src: 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js',
+      type: 'text/javascript'
+    },
+    {
+      src: 'https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js',
+      type: 'text/javascript'
+    }
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -34,7 +52,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/vuetify'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
