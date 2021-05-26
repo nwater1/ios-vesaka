@@ -92,7 +92,7 @@ export default {
   computed: {
     coverImg () {
       if (this.name) {
-        return `https://res.cloudinary.com/dda7dxqvr/image/upload/w_290,c_fit,l_text:sarabun.ttf_40:${this.name},y_220,co_rgb:3E2914/indexcard3.jpg`
+        return `https://res.cloudinary.com/dda7dxqvr/image/upload/w_340,c_fit,l_text:sarabun.ttf_48:${this.name},y_220,co_rgb:3E2914/indexcard3.jpg`
         // return `https://res.cloudinary.com/dz4zph4bl/image/upload/w_2520,c_fit,l_text:Arial_260:${this.name},g_south,y_700,co_rgb:FFFFFF/card-social_vqioai.jpg`
       } else {
         return 'https://res.cloudinary.com/dda7dxqvr/image/upload/v1621888519/cardindex.jpg'
@@ -121,7 +121,7 @@ export default {
 
     const id = this.$route.params.id
     this.name = id
-    const response = `https://res.cloudinary.com/dda7dxqvr/image/upload/w_290,c_fit,l_text:sarabun.ttf_40:${this.name},y_220,co_rgb:3E2914/indexcard3.jpg`
+    const response = `https://res.cloudinary.com/dda7dxqvr/image/upload/w_340,c_fit,l_text:sarabun.ttf_48:${this.name},y_220,co_rgb:3E2914/indexcard3.jpg`
     this.img = response
     this.blog = this.$store.state.user.user.coverImage
     // eslint-disable-next-line no-undef
